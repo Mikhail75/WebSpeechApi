@@ -1,17 +1,19 @@
 import React, {useState} from "react";
-import BaseToneFrequencyControl from "./BaseToneFrequencyControl";
-import SoundFrequencyScale from "./SoundFrequencyScale";
+import TextArea from "./TextArea";
 
-import '../styles/App.css';
+import "../styles/App.css";
 
 function App() {
-	const [baseToneNumber] = useState(57);
-	const [baseToneFrequency, setBaseToneFrequency] = useState(440);
+	const [textToSpeech, setTextToSpeech] = useState("");
 
 	return (
 		<div>
 			<h1>Web Speech API</h1>
-			// TODO
+			<TextArea
+				className="text-to-speech-area"
+				value={textToSpeech}
+				onChange={setTextToSpeech}
+			/>
 		</div>
 	);
 }
