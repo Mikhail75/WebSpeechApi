@@ -34,6 +34,7 @@ function App() {
 			/>
 			<ControlPanel
 				className="control-panel"
+				onPlayButtonClick={() => console.log('Play button click')}
 			/>
 		</div>
 	);

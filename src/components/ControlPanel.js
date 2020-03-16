@@ -1,8 +1,10 @@
 import React from "react";
+import Button from "./Button";
 
 /**
  *  @typedef {{
  *    className: string,
+ *    onPlayButtonClick: function(any):any,
  *  }} Props
  */
 
@@ -12,7 +14,11 @@ import React from "react";
 function ControlPanel(props) {
 	return (
 		<div className={props.className}>
-			Control Panel
+			<Button
+				className="play-button"
+				value="Play"
+				onClick={props.onPlayButtonClick}
+			/>
 		</div>
 	);
 }
