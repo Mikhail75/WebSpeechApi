@@ -16,7 +16,7 @@ function ControlPanel(props) {
 		<div className={props.className}>
 			<Button
 				className="play-button"
-				value="Play"
+				value="Speak"
 				onClick={props.onPlayButtonClick}
 			/>
 		</div>
