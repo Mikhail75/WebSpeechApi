@@ -3,7 +3,6 @@ body {
 }
 
 h1 {
-    color: #27aedb;
     text-align: center;
 }
 
@@ -27,9 +26,26 @@ textarea {
     font-size: 12pt;
 }
 
+.labeled-slider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.labeled-slider-label {
+    width: 90px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.labeled-slider-input {
+    flex-grow: 1;
+}
+
 .control-panel {
     width: 100%;
-    margin: 12px 0;
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -40,4 +56,29 @@ textarea {
     height: 40px;
     font-family: Segoe UI, sans-serif;
     font-size: 14pt;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 24px;
+    background: #DDDDDD;
+    border: 1px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 48px;
+    width: 26px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -13px;
 }

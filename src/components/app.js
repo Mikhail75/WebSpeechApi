@@ -11,6 +11,9 @@ function App() {
 	const [text, setText] = useState("");
 	const [voices, setVoices] = useState(createVoicesInfo());
 	const [selectedVoice, setSelectedVoice] = useState(0);
+	const [rate, setRate] = useState(1);
+	const [pitch, setPitch] = useState(1);
+	const [volume, setVolume] = useState(1);
 
 	if (speechSynthesis.onvoiceschanged !== undefined)
 	{
@@ -30,12 +33,18 @@ function App() {
 				settings={{
 					voices,
 					selectedVoice,
+					rate,
+					pitch,
+					volume,
 					onVoiceChange: (index) => setSelectedVoice(index),
+					onRateChange: (value) => setRate(value),
+					onPitchChange: (value) => setPitch(value),
+					onVolumeChange: (value) => setVolume(value),
 				}}
 			/>
 			<ControlPanel
 				className="control-panel"
-				onPlayButtonClick={() => speak(text, voices[selectedVoice], 1, 1, 1)}
+				onPlayButtonClick={() => speak(text, voices[selectedVoice], volume, pitch, rate)}
 			/>
 		</div>
 	);
