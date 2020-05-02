@@ -29,7 +29,7 @@ function speak(text, voiceInfo, volume, pitch, rate) {
  */
 function getVoice(voiceInfo) {
 	const voice = speechSynthesis.getVoices().find(
-		(value) => value.name == voiceInfo.name
+		(value) => value.name == voiceInfo.name,
 	);
 
 	if (voice == undefined)
