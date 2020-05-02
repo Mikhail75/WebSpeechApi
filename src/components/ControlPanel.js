@@ -5,6 +5,7 @@ import Button from "./Button";
  *  @typedef {{
  *    className: string,
  *    onPlayButtonClick: function(any):any,
+ *    isPlaying: boolean,
  *  }} Props
  */
 
@@ -18,6 +19,7 @@ function ControlPanel(props) {
 				className="play-button"
 				value="Speak"
 				onClick={props.onPlayButtonClick}
+				disabled={props.isPlaying}
 			/>
 		</div>
 	);

@@ -1,13 +1,17 @@
 import VoiceInfo from "./VoiceInfo";
 
 /**
- * @param {string} text
- * @param {!VoiceInfo} voiceInfo
- * @param {number} volume
- * @param {number} pitch
- * @param {number} rate
+ * @param {{
+ *   text: string,
+ *   voiceInfo: !VoiceInfo,
+ *   volume: number,
+ *   pitch: number,
+ *   rate: number,
+ *   onStart: function():void,
+ *   onEnd: function():void,
+ * }} args
  */
-function speak(text, voiceInfo, volume, pitch, rate) {
+function speak({text, voiceInfo, volume, pitch, rate, onStart, onEnd}) {
 	if (speechSynthesis.speaking || !text)
 	{
 		return;
@@ -16,9 +20,13 @@ function speak(text, voiceInfo, volume, pitch, rate) {
 	const utterance = new SpeechSynthesisUtterance(text);
 
 	utterance.voice = getVoice(voiceInfo);
+
 	utterance.volume = volume;
 	utterance.pitch = pitch;
 	utterance.rate = rate;
+
+	utterance.onstart = onStart;
+	utterance.onend = onEnd;
 
 	speechSynthesis.speak(utterance);
 }

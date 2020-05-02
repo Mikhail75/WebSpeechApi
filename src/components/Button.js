@@ -5,6 +5,7 @@ import React from "react";
  *    className: string,
  *    value: string,
  *    onClick: function(any):any,
+ *    disabled: boolean,
  *  }} Props
  */
 
@@ -18,6 +19,7 @@ function Button(props) {
 			type="button"
 			value={props.value}
 			onClick={props.onClick}
+			disabled={props.disabled}
 		/>
 	);
 }
